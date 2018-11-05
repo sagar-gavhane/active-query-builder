@@ -1,6 +1,6 @@
 {
   "name": "active-query-builder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "simple, clean way to write your sql queries",
   "main": "index.js",
   "author": "Sagar",
