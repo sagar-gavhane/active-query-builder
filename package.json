@@ -1,5 +1,5 @@
 {
-  "name": "mysql-query-builder",
+  "name": "active-query-builder",
   "version": "1.0.0",
   "description": "simple, clean way to write your sql queries",
   "main": "index.js",
