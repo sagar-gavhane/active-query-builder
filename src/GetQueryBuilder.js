@@ -1,6 +1,6 @@
 const { isNumber } = require('lodash')
 
-class GET_QUERY_BUILDER {
+class GetQueryBuilder {
   get(tableName, limit = null, offset = null, GET_COMPILED_QUERY = false){
     return new Promise((resolve, reject) => {
       let query = `SELECT * FROM ${tableName}`
@@ -53,4 +53,4 @@ class GET_QUERY_BUILDER {
   }
 }
 
-module.exports = GET_QUERY_BUILDER
+module.exports = GetQueryBuilder
