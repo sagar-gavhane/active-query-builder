@@ -1,3 +1,2 @@
-# active-query-builder
+# Initial page
 
-Simple, clean way to write your sql query
