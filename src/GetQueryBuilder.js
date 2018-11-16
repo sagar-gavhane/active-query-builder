@@ -1,18 +1,16 @@
-const { isNumber } = require('lodash')
+const isNumber = require('lodash/isNumber')
 
 class GetQueryBuilder {
   get(tableName, limit = null, offset = null, GET_COMPILED_QUERY = false){
     return new Promise((resolve, reject) => {
       let query = `SELECT * FROM ${tableName}`
-      const _limit = isNumber(limit)
-      const _offset = isNumber(offset)
-      
-      if (_limit && !_offset) {
+
+      if (isNumber(limit) && !isNumber(offset)) {
         query = `${query} LIMIT ${limit}`
-      } else if (_limit && _offset) {
+      } else if (isNumber(limit) && isNumber(offset)) {
         query = `${query} LIMIT ${limit},${offset}`
       }
-      
+
       if (GET_COMPILED_QUERY) {
         resolve(query)
       } else {
@@ -22,16 +20,17 @@ class GetQueryBuilder {
           }
           resolve(rows)
         })
-      }      
+      }
     })
   }
 
   get_where(tableName, matcher, limit, offset, GET_COMPILED_QUERY = false){
     return new Promise((resolve, reject) => {
-      let query = `SELECT * FROM ${tableName} WHERE` 
+      let query = `SELECT * FROM ${tableName} WHERE`
       let where_clause = ''
-      const totalKeys = Object.keys(matcher).length
       let counter = 1
+      const totalKeys = Object.keys(matcher).length
+
       for (const key in matcher) {
         where_clause = `${where_clause}${key}="${matcher[key]}"`
         if (totalKeys > counter) {
@@ -40,7 +39,7 @@ class GetQueryBuilder {
         counter++
       }
       query = `${query} ${where_clause} LIMIT ${limit},${offset}`
-      
+
       if (GET_COMPILED_QUERY) {
         resolve(query)
       }

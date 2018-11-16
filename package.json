@@ -6,11 +6,17 @@
   "author": "Sagar",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "test": "jest --detectOpenHandles --watchAll"
+  },
   "dependencies": {
-    "eslint": "^5.8.0",
-    "faker": "^4.1.0",
-    "jest": "^23.6.0",
     "lodash": "^4.17.11",
     "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0",
+    "eslint": "^5.8.0",
+    "faker": "^4.1.0",
+    "jest": "^23.6.0"
   }
 }
