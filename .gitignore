@@ -79,4 +79,6 @@ typings/
 # FuseBox cache
 .fusebox/
 
-# End of https://www.gitignore.io/api/node
+# End of https://www.gitignore.io/api/
+yarn.lock
+.vscode
