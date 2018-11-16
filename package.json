@@ -1,15 +1,24 @@
 {
   "name": "active-query-builder",
-  "version": "1.0.1",
-  "description": "simple, clean way to write your sql queries",
-  "main": "index.js",
+  "version": "1.0.3",
+  "private": false,
+  "homepage": "https://github.com/sagar-gavhane/active-query-builder",
+  "description": "Simple and flexible way to write your next MySQL queries.",
   "author": "Sagar",
   "license": "MIT",
-  "private": false,
+  "keywords": [
+    "mysql",
+    "query-builder",
+    "nodejs",
+    "mysqljs",
+    "active-query-builder"
+  ],
+  "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles --watchAll"
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
+    "husky": "^1.1.4",
     "lodash": "^4.17.11",
     "mysql": "^2.16.0"
   },
@@ -19,5 +28,17 @@
     "faker": "^4.1.0",
     "jest": "^23.6.0",
     "semantic-release": "^15.12.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sagar-gavhane/active-query-builder"
+  },
+  "bugs": {
+    "url": "https://github.com/sagar-gavhane/active-query-builder/issues"
   }
 }
