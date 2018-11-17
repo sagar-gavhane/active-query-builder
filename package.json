@@ -18,7 +18,6 @@
     "test": "jest --detectOpenHandles"
   },
   "dependencies": {
-    "husky": "^1.1.4",
     "lodash": "^4.17.11",
     "mysql": "^2.16.0"
   },
@@ -26,12 +25,13 @@
     "dotenv": "^6.1.0",
     "eslint": "^5.8.0",
     "faker": "^4.1.0",
+    "husky": "^1.1.4",
     "jest": "^23.6.0",
     "semantic-release": "^15.12.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "echo run your test"
     }
   },
   "repository": {

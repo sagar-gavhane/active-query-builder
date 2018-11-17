@@ -1,5 +1,9 @@
 const isNumber = require('lodash/isNumber')
 
+/**
+ * @todo Write tests for GetQueryBuilder class
+ * @body To make code reliable we have to add tests for GetQueryBuilder class
+ */
 class GetQueryBuilder {
   get(tableName, limit = null, offset = null, GET_COMPILED_QUERY = false){
     return new Promise((resolve, reject) => {

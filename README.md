@@ -39,7 +39,30 @@ A step by step series of examples that tell you how to get a development env run
 Say what the step will be
 
 ```bash
-npm install mysqljs active-query-builder --save
+npm install mysql active-query-builder --save
+```
+
+### Usages
+
+```javascript
+const QueryBuilder = require("active-query-builder");
+
+// create instance of QueryBuilder class
+const conn = new QueryBuilder({
+  host: "localhost",
+  user: "root",
+  password: "root",
+  database: "sandbox"
+});
+
+conn
+  .query("SELECT * FROM person_19497")
+  .then(result => {
+    console.log("result", result); // <-- you will get persons records
+  })
+  .catch(err => {
+    console.error("err", err); // <-- if there is some error occured
+  });
 ```
 
 ## Running the tests
@@ -60,7 +83,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-**Sagar Gavhane** - *core author*
+![Sagar Gavhane](https://avatars3.githubusercontent.com/u/33308798?s=400&u=f13a19ce58469e60716c37209ef8b7e6f190076e&v=4)
+
+**Sagar Gavhane**
 
 See also the list of [contributors](https://github.com/sagar-gavhane/active-query-builder/contributors) who participated in this project.
 
