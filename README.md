@@ -17,7 +17,7 @@ Simple and flexible way to write your next MySQL queries.
 
 ## The problem
 
-Writting queries with [mysqljs](https://github.com/mysqljs/mysql) makes difficult because they doesn't supports you ES6 Promise feature and during working on project I found that same queries are repetative and required more keystrokes.
+Writting queries with [mysql](https://github.com/mysqljs/mysql) makes difficult because it doesn't supports ES6 Promise and during working on project I found that same queries are repetative.
 
 ## This solution
 
@@ -26,6 +26,35 @@ I come with simple and flexible solution for writting repetative queries using a
 ## Getting Started
 
 This is package mainly designed for mysqljs. It's written in JavaScript, does not require compiling, and is 100% MIT licensed.
+
+```javascript
+const ActiveQueryBuilder = require('active-query-builder')
+
+// make connection to your database
+const conn = new ActiveQueryBuilder({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'sandbox',
+})
+
+// query method
+conn.query('SELECT * FROM person WHERE email=?', ['john@domain.com'])
+  .then(({results, fields, query}) => {
+    console.log(results) // this is your result
+  })
+
+// get method
+conn.get('users').then(({results, fields, query}) => {
+  console.log(results) // this is your result
+})
+
+// get_where method
+conn.get_where('users', { 'email': 'john@domain.com' })
+  .then(({ results, fields, query }) => {
+    console.log(results) // this is your result
+  })
+```
 
 ### Prerequisites
 
@@ -41,7 +70,7 @@ A step by step series of examples that tell you how to get a development env run
 Say what the step will be
 
 ```bash
-npm install mysqljs active-query-builder --save
+npm install mysql active-query-builder --save
 ```
 
 ## Running the tests
@@ -62,9 +91,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-**Sagar Gavhane** - *core author*
+[Sagar Gavhane](https://www.twitter.com/sagar_dev44) - *core author*
 
-See also the list of [contributors](https://github.com/sagar-gavhane/active-query-builder/contributors) who participated in this project.
+<!-- See also the list of [contributors](https://github.com/sagar-gavhane/active-query-builder/contributors) who participated in this project. -->
 
 ## License
 

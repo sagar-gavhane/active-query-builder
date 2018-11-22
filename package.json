@@ -1,9 +1,9 @@
 {
   "name": "active-query-builder",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "simple, clean way to write your sql queries",
   "main": "index.js",
-  "author": "Sagar",
+  "author": "Sagar Gavhane",
   "license": "MIT",
   "private": false,
   "scripts": {

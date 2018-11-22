@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 require('dotenv').config()
-const QueryBuilder = require('./../index')
+const ActiveQueryBuilder = require('./../index')
 const faker = require('faker')
 const isEmpty = require('lodash/isEmpty')
 
@@ -11,7 +11,7 @@ const {
   DB_NAME,
 } = process.env
 
-const conn = new QueryBuilder({
+const conn = new ActiveQueryBuilder({
   host: DB_HOST,
   user: DB_USER,
   password: DB_PASSWORD,

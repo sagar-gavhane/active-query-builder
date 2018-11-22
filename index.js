@@ -1,3 +1,3 @@
-const QueryBuilder = require('./src/index')
+const ActiveQueryBuilder = require('./src/index')
 
-module.exports = QueryBuilder
+module.exports = ActiveQueryBuilder
