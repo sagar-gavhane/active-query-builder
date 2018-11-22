@@ -1,6 +1,6 @@
 {
   "name": "active-query-builder",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": false,
   "homepage": "https://github.com/sagar-gavhane/active-query-builder",
   "description": "Simple and flexible way to write your next MySQL queries.",
