@@ -6,17 +6,17 @@ class QueryBuilder extends GetQueryBuilder {
     super(config)
     this.connection = mysql.createConnection(config)
   }
-  
+
   query(query, args, GET_COMPILED_QUERY = false){
     return new Promise((resolve, reject) => {
       if (GET_COMPILED_QUERY) {
         return resolve(query)
       } else {
-        this.connection.query(query, args, (err, rows) => {
+        this.connection.query(query, args, (err, results, fields) => {
           if (err) {
             reject(err)
           }
-          resolve(rows)
+          resolve({ results, fields })
         })
       }
     })
