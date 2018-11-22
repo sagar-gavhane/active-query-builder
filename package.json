@@ -15,7 +15,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles"
+    "test": "jest --watch"
   },
   "dependencies": {
     "lodash": "^4.17.11",
