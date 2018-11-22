@@ -15,7 +15,7 @@
 
 ## The problem
 
-Writting queries with [mysqljs](https://github.com/mysqljs/mysql) makes difficult because they doesn't supports you ES6 Promise feature and during working on project I found that same queries are repetative and required more keystrokes.
+Writting queries with [mysql](https://github.com/mysqljs/mysql) makes difficult because it doesn't supports ES6 Promise and during working on project I found that same queries are repetative.
 
 ## This solution
 
@@ -24,6 +24,35 @@ I come with simple and flexible solution for writting repetative queries using a
 ## Getting Started
 
 This is package mainly designed for mysqljs. It's written in JavaScript, does not require compiling, and is 100% MIT licensed.
+
+```javascript
+const ActiveQueryBuilder = require('active-query-builder')
+
+// make connection to your database
+const conn = new ActiveQueryBuilder({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'sandbox',
+})
+
+// query method
+conn.query('SELECT * FROM person WHERE email=?', ['john@domain.com'])
+  .then(({results, fields, query}) => {
+    console.log(results) // this is your result
+  })
+
+// get method
+conn.get('users').then(({results, fields, query}) => {
+  console.log(results) // this is your result
+})
+
+// get_where method
+conn.get_where('users', { 'email': 'john@domain.com' })
+  .then(({ results, fields, query }) => {
+    console.log(results) // this is your result
+  })
+```
 
 ### Prerequisites
 
@@ -40,29 +69,6 @@ Say what the step will be
 
 ```bash
 npm install mysql active-query-builder --save
-```
-
-### Usages
-
-```javascript
-const QueryBuilder = require("active-query-builder");
-
-// create instance of QueryBuilder class
-const conn = new QueryBuilder({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "sandbox"
-});
-
-conn
-  .query("SELECT * FROM person_19497")
-  .then(result => {
-    console.log("result", result); // <-- you will get persons records
-  })
-  .catch(err => {
-    console.error("err", err); // <-- if there is some error occured
-  });
 ```
 
 ## Running the tests
@@ -83,11 +89,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-![Sagar Gavhane](https://avatars3.githubusercontent.com/u/33308798?s=400&u=f13a19ce58469e60716c37209ef8b7e6f190076e&v=4)
+[Sagar Gavhane](https://www.twitter.com/sagar_dev44) - *core author*
 
-**Sagar Gavhane**
-
-See also the list of [contributors](https://github.com/sagar-gavhane/active-query-builder/contributors) who participated in this project.
+<!-- See also the list of [contributors](https://github.com/sagar-gavhane/active-query-builder/contributors) who participated in this project. -->
 
 ## License
 
