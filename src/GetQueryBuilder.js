@@ -1,25 +1,40 @@
-const isNumber = require('lodash/isNumber')
+const {
+  isNaN,
+  isString,
+  isEmpty,
+  isBoolean
+} = require('lodash')
 
 class GetQueryBuilder {
-  get(tableName, limit = null, offset = null, GET_COMPILED_QUERY = false){
+  get(tableName = '', limit = null, offset = null, GET_COMPILED_QUERY = false){
     return new Promise((resolve, reject) => {
-      let query = `SELECT * FROM ${tableName}`
 
-      if (isNumber(limit) && !isNumber(offset)) {
-        query = `${query} LIMIT ${limit}`
-      } else if (isNumber(limit) && isNumber(offset)) {
-        query = `${query} LIMIT ${limit},${offset}`
-      }
+      if (isString(tableName) && !isEmpty(tableName)) {
+        let query = `SELECT * FROM ${tableName}`
 
-      if (GET_COMPILED_QUERY) {
-        resolve(query)
-      } else {
-        this.connection.query(query, (err, rows) => {
-          if (err) {
-            reject(err)
+        const _limit = parseInt(Math.abs(limit), 10)
+        const _offset = parseInt(Math.abs(offset), 10)
+
+        if (!isNaN(_limit)) {
+          if (isNaN(_offset)) {
+            query = `${query} LIMIT ${_limit}`
+          } else {
+            query = `${query} LIMIT ${_limit},${_offset}`
           }
-          resolve(rows)
-        })
+        }
+
+        if (isBoolean(GET_COMPILED_QUERY) && !GET_COMPILED_QUERY) {
+          this.connection.query(query, (err, results, rows) => {
+            if (err) {
+              reject(err)
+            }
+            resolve({ results, rows })
+          })
+        } else {
+          resolve({ query })
+        }
+      } else {
+        throw new Error('Table name should be valid non empty string.')
       }
     })
   }
