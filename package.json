@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "xss": "^1.0.3"
   },
   "devDependencies": {
     "dotenv": "^6.1.0",

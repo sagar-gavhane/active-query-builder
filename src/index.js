@@ -34,8 +34,8 @@ class ActiveQueryBuilder {
       if (isString(tableName) && !isEmpty(tableName)) {
         let query = `SELECT * FROM ${tableName}`
 
-        const _limit = parseInt(limit)
-        const _offset = parseInt(offset)
+        const _limit = limit < 0 ? parseInt(limit) * -1 : parseInt(limit)
+        const _offset = offset < 0 ? parseInt(offset) * -1 : parseInt(offset)
 
         if (!isNaN(_limit)) {
           if (isNaN(_offset)) {
@@ -82,8 +82,8 @@ class ActiveQueryBuilder {
           query = `${query} ${where_clause}`
         }
 
-        const _limit = parseInt(limit)
-        const _offset = parseInt(offset)
+        const _limit = limit < 0 ? parseInt(limit) * -1 : parseInt(limit)
+        const _offset = offset < 0 ? parseInt(offset) * -1 : parseInt(offset)
 
         if (!isNaN(_limit)) {
           if (isNaN(_offset)) {
