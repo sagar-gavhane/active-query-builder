@@ -186,6 +186,42 @@ class ActiveQueryBuilder {
   }
 
   /**
+   * Insert batch method generates an insert string MySQL query based on the data you supply, and runs the query.
+   *
+   * @since 1.0.5
+   * @param {String} tableName Table name for performing MySQL query
+   * @param {Array} keys Keys or fields name of selected table
+   * @param {Array} setter Pass an array or an object to the this method for data insertion.
+   * @param {Boolean} GET_COMPILED_QUERY Set to true if you want to debug your query
+   * @returns {Promise} Return ES6 promise
+   */
+  insert_batch(tableName, keys, setter, GET_COMPILED_QUERY = false){
+    return new Promise((resolve, reject) => {
+
+      if (isString(tableName) && !isEmpty(tableName)) {
+        if (isObject(keys) && isArray(setter) && !isEmpty(setter)) {
+          const query = `INSERT INTO ${tableName} (${keys}) VALUES ?`
+
+          if (isBoolean(GET_COMPILED_QUERY) && !GET_COMPILED_QUERY) {
+            this.connection.query(query, [setter], (err, results, rows) => {
+              if (err) {
+                reject(err)
+              }
+              resolve({ results, rows, query })
+            })
+          } else {
+            resolve({ results: [], rows: {}, query })
+          }
+        } else {
+          throw new Error('Invalid data passed')
+        }
+      } else {
+        throw new Error('Table name should be valid non empty string.')
+      }
+    })
+  }
+
+  /**
    * Close your connection
    *
    * @since 1.0.0
