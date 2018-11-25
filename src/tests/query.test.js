@@ -32,7 +32,7 @@ beforeAll(async (done) => {
 
 afterAll(async (done) => {
   try {
-    const query = `DELETE FROM ${tableName}`
+    const query = `DROP TABLE ${tableName}`
     await conn.query(query)
     done()
   } catch (Exception) {
