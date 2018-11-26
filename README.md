@@ -91,4 +91,3 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/sagar-gavhane/active-query-builder/tree/d506a2ad1bfff5c1be6364f409b7b3c0104c1fe5/LICENSE.md) file for details
-

@@ -1,3 +1,4 @@
+const faker = require('faker')
 const ActiveQueryBuilder = require('./../index')
 
 const DB_HOST = 'localhost'
@@ -12,17 +13,15 @@ const conn = new ActiveQueryBuilder({
   database: DB_NAME,
 })
 
-conn.get('users').then(response => {
-  console.log(response.query)
-  console.log(result) // this is your result
-})
+const setter = {
+  first_name: '__superman__',
+  last_name: '__k__',
+}
 
-(async () => {
-  try {
-    const { results, fields, query } = await conn.get('users')
-    console.log(results) //
-  } catch (Exception) {
-    // handle exception
-    console.log('Exception', Exception)
-  }
-})()
+const matcher = {
+  id: 10
+}
+
+conn.update('person_3803', setter, matcher).then(response => {
+  console.log(response)
+})
