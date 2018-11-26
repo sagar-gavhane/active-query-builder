@@ -12,15 +12,15 @@ Simple and flexible way to write your next MySQL queries.
 
 ## The problem
 
-Writing queries with [mysql](https://github.com/mysqljs/mysql) makes difficult because it doesn't supports ES6 Promise and during working on project I found that same queries are repetitive.
+Writing queries with [mysql](https://github.com/mysqljs/mysql) is difficult because it doesn't supports ES6 Promise and while working on a personal project I found that same queries are repeated over and over.
 
 ## This solution
 
-I come with simple and flexible solution for writing repetitive queries using active query builder. This pattern allows information to be retrieved, inserted, and updated in your database with minimal scripting. In some cases only one or two lines of code are necessary to perform a database action.
+I have come up with a simple and flexible solution for writing repetitive queries using active query builder. This pattern allows information to be retrieved, inserted, and updated in your database with minimal scripting. In some cases only one or two lines of code are necessary to perform a database action.
 
 ## Getting Started
 
-This is package mainly designed for MySQL. It's written in JavaScript, does not require compiling, and is 100% MIT licensed.
+This package is mainly designed for MySQL. It's written in JavaScript, does not require compiling, and is MIT licensed.
 
 ```javascript
 const ActiveQueryBuilder = require('active-query-builder')
@@ -53,7 +53,7 @@ conn.get_where('users', { 'email': 'john@domain.com' })
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Things you need to install the package
 
 1. Node 8.10 or above
 2. MySQL community edition
