@@ -6,9 +6,9 @@ Simple and flexible way to write your next MySQL queries.
 
 ## Badges
 
-![Travis \(.org\)](https://img.shields.io/travis/sagar-gavhane/active-query-builder.svg?style=flat-square) ![npm](https://img.shields.io/npm/dm/active-query-builder.svg?style=flat-square) ![npm](https://img.shields.io/npm/v/active-query-builder.svg?style=flat-square) ![GitHub](https://img.shields.io/github/license/sagar-gavhane/active-query-builder.svg)
+ ![npm](https://img.shields.io/npm/dm/active-query-builder.svg?style=flat-square) ![npm](https://img.shields.io/npm/v/active-query-builder.svg?style=flat-square) ![GitHub](https://img.shields.io/github/license/sagar-gavhane/active-query-builder.svg)![GitHub contributors](https://img.shields.io/github/contributors/sagar-gavhane/active-query-builder.svg)
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) ![GitHub issues](https://img.shields.io/github/issues/sagar-gavhane/active-query-builder.svg) ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/sagar-gavhane/active-query-builder.svg) ![node](https://img.shields.io/badge/node-0.10.33-brightgreen.svg) ![GitHub contributors](https://img.shields.io/github/contributors/sagar-gavhane/active-query-builder.svg)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) ![GitHub issues](https://img.shields.io/github/issues/sagar-gavhane/active-query-builder.svg) ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/sagar-gavhane/active-query-builder.svg) ![node](https://img.shields.io/badge/node-0.10.33-brightgreen.svg) 
 
 ## The problem
 
@@ -91,3 +91,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/sagar-gavhane/active-query-builder/tree/d506a2ad1bfff5c1be6364f409b7b3c0104c1fe5/LICENSE.md) file for details
+
