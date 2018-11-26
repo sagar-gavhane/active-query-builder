@@ -10,8 +10,6 @@ description: Simple and flexible way to write your next MySQL queries.
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) ![GitHub issues](https://img.shields.io/github/issues/sagar-gavhane/active-query-builder.svg) ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/sagar-gavhane/active-query-builder.svg) ![node](https://img.shields.io/badge/node-0.10.33-brightgreen.svg) ![GitHub contributors](https://img.shields.io/github/contributors/sagar-gavhane/active-query-builder.svg)
 
-![](.gitbook/assets/frog_emoji_icon_png.png)
-
 ## The problem
 
 Writing queries with [mysql](https://github.com/mysqljs/mysql) makes difficult because it doesn't supports ES6 Promise and during working on project I found that same queries are repetitive.
