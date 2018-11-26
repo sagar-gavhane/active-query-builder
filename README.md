@@ -1,6 +1,8 @@
 # active-query-builder
 
-**Simple and flexible way to write your next MySQL queries.**
+## **Motto**
+
+Simple and flexible way to write your next MySQL queries.
 
 ## Badges
 
