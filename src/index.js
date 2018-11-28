@@ -221,34 +221,6 @@ class ActiveQueryBuilder {
     })
   }
 
-  update(tableName, setter, matcher, GET_COMPILED_QUERY = false) {
-    return new Promise((resolve, reject) => {
-      let query = `UPDATE ${tableName} SET`
-      let set = ''
-      let where_clause = 'WHERE'
-      let args = []
-      let counter = 1
-      const totalKeys = Object.keys(matcher).length
-
-      for (const setterKey in setter) {
-        if (totalKeys > counter) {
-          set = `${set} ${setterKey}=?,`
-        } else {
-          set = `${set} ${setterKey}=?`
-        }
-        args.push(setter[setterKey])
-      }
-
-      for (const matcherKey in matcher) {
-        where_clause = `${where_clause} ${matcherKey}=${matcher[matcherKey]}`
-      }
-      query = `${query}${set} ${where_clause}`
-      this.query(query, args).then(response => {
-        resolve({query, args, response})
-      })
-    })
-  }
-
   /**
    * Close your connection
    *

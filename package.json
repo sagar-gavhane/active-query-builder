@@ -4,7 +4,7 @@
   "private": false,
   "homepage": "https://github.com/sagar-gavhane/active-query-builder",
   "description": "Simple and flexible way to write your next MySQL queries.",
-  "author": "Sagar",
+  "author": "Sagar Gavhane",
   "license": "MIT",
   "keywords": [
     "mysql",
