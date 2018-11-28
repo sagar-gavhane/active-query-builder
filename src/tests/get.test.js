@@ -31,7 +31,7 @@ beforeAll(async (done) => {
 
 afterAll(async (done) => {
   try {
-    const query = `DELETE FROM ${tableName}`
+    const query = `DROP TABLE ${tableName}`
     await conn.query(query)
     done()
   } catch (Exception) {
@@ -62,10 +62,133 @@ describe('get method test', () => {
   })
 
   // with tableName, limit
+  it(`should be get records with given limit of an ${tableName}`, async (done) => {
+    try {
+      const first_name = faker.name.firstName()
+      const last_name = faker.name.lastName()
+
+      const insertQuery = `INSERT INTO ${tableName} (first_name, last_name) VALUES (?,?)`
+      const { results: insertResult } = await conn.query(insertQuery, [first_name, last_name])
+
+      if (insertResult.affectedRows === 1) {
+        const { results } = await conn.get(tableName, 1)
+        expect(results.length).toBe(1)
+        done()
+      } else {
+        throw new Error(`Unable to insert record into ${tableName}`)
+      }
+    } catch (Exception) {
+      throw Exception
+    }
+  })
+
   // with tableName, limit, offset
+  it(`should be get records with given limit and offset of an ${tableName}`, async (done) => {
+    try {
+      const first_name = faker.name.firstName()
+      const last_name = faker.name.lastName()
+
+      const insertValues = [
+        [first_name, last_name],
+        [first_name, last_name],
+        [first_name, last_name],
+      ]
+
+      const insertQuery = `INSERT INTO ${tableName} (first_name, last_name) VALUES ?`
+      const { results: insertResult } = await conn.query(insertQuery, [insertValues])
+
+      if (insertResult.affectedRows >= 1) {
+        const { results } = await conn.get(tableName, 1, 1)
+        expect(results.length).toBe(1)
+        done()
+      } else {
+        throw new Error(`Unable to insert record into ${tableName}`)
+      }
+    } catch (Exception) {
+      throw Exception
+    }
+  })
+
   // with tableName, null, offset,
-  // with tableName, null, null, GET_COMPILED_QUERY = true
+  it(`should be get records with limit is null and offset of an ${tableName}`, async (done) => {
+    try {
+      const first_name = faker.name.firstName()
+      const last_name = faker.name.lastName()
+
+      const insertValues = [
+        [first_name, last_name],
+        [first_name, last_name],
+        [first_name, last_name],
+      ]
+
+      const insertQuery = `INSERT INTO ${tableName} (first_name, last_name) VALUES ?`
+      const { results: insertResult } = await conn.query(insertQuery, [insertValues])
+
+      if (insertResult.affectedRows >= 1) {
+        const { results } = await conn.get(tableName, null, 1)
+        expect(results.length).toBeGreaterThan(3)
+        done()
+      } else {
+        throw new Error(`Unable to insert record into ${tableName}`)
+      }
+    } catch (Exception) {
+      throw Exception
+    }
+  })
+
   // with tableName, '1.5', '1.5'
+  it(`should be get records with limit is 1.5 and offset is 1.5 of an ${tableName}`, async (done) => {
+    try {
+      const first_name = faker.name.firstName()
+      const last_name = faker.name.lastName()
+
+      const insertValues = [
+        [first_name, last_name],
+        [first_name, last_name],
+        [first_name, last_name],
+      ]
+
+      const insertQuery = `INSERT INTO ${tableName} (first_name, last_name) VALUES ?`
+      const { results: insertResult } = await conn.query(insertQuery, [insertValues])
+
+      if (insertResult.affectedRows >= 1) {
+        const { results } = await conn.get(tableName, 1.5, 1.5)
+        expect(results.length).toBe(1)
+        done()
+      } else {
+        throw new Error(`Unable to insert record into ${tableName}`)
+      }
+    } catch (Exception) {
+      throw Exception
+    }
+  })
+
   // with tableName, '-1', '-1'
+  it(`should be get records with limit is -1 and offset is -1 of an ${tableName}`, async (done) => {
+    try {
+      const first_name = faker.name.firstName()
+      const last_name = faker.name.lastName()
+
+      const insertValues = [
+        [first_name, last_name],
+        [first_name, last_name],
+        [first_name, last_name],
+      ]
+
+      const insertQuery = `INSERT INTO ${tableName} (first_name, last_name) VALUES ?`
+      const { results: insertResult } = await conn.query(insertQuery, [insertValues])
+
+      if (insertResult.affectedRows >= 1) {
+        const { results } = await conn.get(tableName, -1, -1)
+        expect(results.length).toBe(1)
+        done()
+      } else {
+        throw new Error(`Unable to insert record into ${tableName}`)
+      }
+    } catch (Exception) {
+      throw Exception
+    }
+  })
+
   // with tableName, '1', offset
 })

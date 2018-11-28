@@ -4,7 +4,7 @@
   "private": false,
   "homepage": "https://github.com/sagar-gavhane/active-query-builder",
   "description": "Simple and flexible way to write your next MySQL queries.",
-  "author": "Sagar",
+  "author": "Sagar Gavhane",
   "license": "MIT",
   "keywords": [
     "mysql",
@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "xss": "^1.0.3"
   },
   "devDependencies": {
     "dotenv": "^6.1.0",
